@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:gravity="center_vertical"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/try_again_text"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#ff0000"
+        android:text="test"
+        local:MvxBind="Text TryAgainText; Visible TryAgainTextVisible" />
+    <EditText
+        android:id="@+id/username_field"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColorHint="#888888"
+        android:hint="Username"
+        local:MvxBind="Text Username" />
+    <EditText
+        android:id="@+id/password"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:textColorHint="#888888"
+        android:hint="Password"
+        local:MvxBind="Text Password" />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        local:MvxBind="Click LoginCommand" />
+</LinearLayout>
