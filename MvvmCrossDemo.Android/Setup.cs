@@ -5,6 +5,7 @@ using MvvmCross.Platform.Platform;
 using System;
 using MvvmCross.Platform;
 using MvvmCrossDemo.Core.Services;
+using MvvmCrossDemo.Android.Services;
 
 namespace MvvmCrossDemo.Android
 {
@@ -24,6 +25,7 @@ namespace MvvmCrossDemo.Android
 		void RegisterTypes()
 		{
 			Mvx.RegisterType<ILoginService, LoginService>();
+			Mvx.RegisterType<INotesService, NotesService>();
 		}
 
 		protected override IMvxTrace CreateDebugTrace()

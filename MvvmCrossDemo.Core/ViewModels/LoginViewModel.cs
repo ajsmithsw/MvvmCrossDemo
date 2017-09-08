@@ -87,7 +87,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 
 			if (authSuccess)
 			{
-				ShowViewModel<MainViewModel>();
+				ShowViewModel<NotesViewModel>();
 			}
 			else
 			{

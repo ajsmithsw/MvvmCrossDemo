@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -132,6 +133,7 @@
     <Compile Include="Views\LoginView.designer.cs">
       <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\NotesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmCrossDemo.Core\MvvmCrossDemo.Core.csproj">

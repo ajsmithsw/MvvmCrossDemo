@@ -1,10 +1,5 @@
-﻿using System;
-using System.Diagnostics;
-using Moq;
+﻿using Moq;
 using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
-using MvvmCross.Platform.Core;
-using MvvmCross.Test.Core;
 using MvvmCrossDemo.Core.Services;
 using MvvmCrossDemo.Core.ViewModels;
 using NUnit.Framework;
@@ -12,7 +7,7 @@ using NUnit.Framework;
 namespace MvvmCrossDemo.Core.Tests.ViewModels
 {
 	[TestFixture]
-	public class LoginViewModelTests : MvxIoCSupportingTest
+	public class LoginViewModelTests : BaseMvxTest
 	{
 		Mock<ILoginService> _loginService;
 
@@ -55,30 +50,24 @@ namespace MvvmCrossDemo.Core.Tests.ViewModels
 			Assert.That((MockDispatcher.Requests[0] as MvxViewModelRequest).ViewModelType == typeof(MainViewModel));
 		}
 
+		[Test]
+		public void OnLoginFailureTryAgainPromptAppears()
+		{
+			_loginService.Setup(x => x.TryLogin("user", "password")).Returns(false);
+
+			var ViewModel = CreateViewModel();
+			ViewModel.Username = "user";
+			ViewModel.Password = "password";
+
+			ViewModel.LoginCommand.Execute(null);
+
+			Assert.IsTrue(ViewModel.TryAgainTextVisible);
+		}
+
 
 		LoginViewModel CreateViewModel()
 		{
 			return new LoginViewModel(_loginService.Object);
 		}
-
-
-
-
-
-
-		#region setup
-		protected BaseMvxDispatcher MockDispatcher
-		{
-			get;
-			private set;
-		}
-
-		protected override void AdditionalSetup()
-		{
-			MockDispatcher = new BaseMvxDispatcher();
-			Ioc.RegisterSingleton<IMvxViewDispatcher>(MockDispatcher);
-			Ioc.RegisterSingleton<IMvxMainThreadDispatcher>(MockDispatcher);
-		}
-		#endregion
 	}
 }

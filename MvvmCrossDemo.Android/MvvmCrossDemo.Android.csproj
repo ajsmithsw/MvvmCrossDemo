@@ -81,6 +81,9 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Services\NotesService.cs" />
+    <Compile Include="Views\NotesView.cs" />
+    <Compile Include="Views\NotesCellView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -101,9 +104,12 @@
     <AndroidResource Include="Resources\layout\MainView.axml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
     <AndroidResource Include="Resources\layout\LoginView.axml" />
+    <AndroidResource Include="Resources\layout\NotesView.axml" />
+    <AndroidResource Include="Resources\layout\note_cell.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmCrossDemo.Core\MvvmCrossDemo.Core.csproj">

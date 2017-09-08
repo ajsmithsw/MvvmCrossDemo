@@ -1,7 +1,10 @@
 using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
+using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
+using MvvmCrossDemo.Core.Services;
+using MvvmCrossDemo.iOS.Services;
 using UIKit;
 
 namespace MvvmCrossDemo.iOS
@@ -20,6 +23,9 @@ namespace MvvmCrossDemo.iOS
 
         protected override IMvxApplication CreateApp()
         {
+			Mvx.RegisterType<ILoginService, LoginService>();
+			Mvx.RegisterType<INotesService, NotesService>();
+
             return new Core.App();
         }
         
