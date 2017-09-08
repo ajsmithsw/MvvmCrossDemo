@@ -66,6 +66,15 @@ namespace MvvmCrossDemo.Core.ViewModels
 			{
 				_tryAgainTextVisible = value;
 				RaisePropertyChanged(() => TryAgainTextVisible);
+				RaisePropertyChanged(() => TryAgainTextHidden);
+			}
+		}
+
+		public bool TryAgainTextHidden
+		{
+			get 
+			{
+				return !TryAgainTextVisible;
 			}
 		}
 

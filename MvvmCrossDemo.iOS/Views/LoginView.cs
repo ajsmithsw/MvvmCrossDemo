@@ -18,9 +18,13 @@ namespace MvvmCrossDemo.iOS.Views
 			var set = this.CreateBindingSet<LoginView, LoginViewModel>();
 
 			set.Bind(TryAgainLabel).To(vm => vm.TryAgainText);
-			set.Bind(TryAgainLabel).For(x => x.Hidden).To(vm => vm.TryAgainTextVisible);
+			set.Bind(TryAgainLabel).For(x => x.Hidden).To(vm => vm.TryAgainTextHidden);
 
-			//set.Bind(Button).To(vm => vm.ResetTextCommand);
+			set.Bind(UsernameField).To(vm => vm.Username);
+			set.Bind(PasswordField).To(vm => vm.Password);
+
+			set.Bind(LoginButton).To(vm => vm.LoginCommand);
+
 			set.Apply();
 		}
 
