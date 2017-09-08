@@ -52,12 +52,19 @@ namespace MvvmCrossDemo.Core.Tests.ViewModels
 
 			Assert.That(MockDispatcher.Requests.Count, Is.EqualTo(1));
 			Assert.That(MockDispatcher.Requests[0], Is.TypeOf(typeof(MvxViewModelRequest)));
+			Assert.That((MockDispatcher.Requests[0] as MvxViewModelRequest).ViewModelType == typeof(MainViewModel));
 		}
+
 
 		LoginViewModel CreateViewModel()
 		{
 			return new LoginViewModel(_loginService.Object);
 		}
+
+
+
+
+
 
 		#region setup
 		protected BaseMvxDispatcher MockDispatcher
