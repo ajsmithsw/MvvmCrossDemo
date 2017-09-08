@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
+using MvvmCrossDemo.Core.Messages;
 using MvvmCrossDemo.Core.Models;
 using MvvmCrossDemo.Core.Services;
 
@@ -12,6 +14,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 	public class NotesViewModel : MvxViewModel
 	{
 		INotesService _notesService;
+		MvxSubscriptionToken _token;
 
 		ObservableCollection<NotesCellViewModel> _notes;
 		public ObservableCollection<NotesCellViewModel> Notes
@@ -22,7 +25,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 			}
 		}
 
-		public NotesViewModel(INotesService notesService)
+		public NotesViewModel(INotesService notesService, IMvxMessenger messenger)
 		{
 			_notesService = notesService;
 
@@ -33,11 +36,13 @@ namespace MvvmCrossDemo.Core.ViewModels
 			}
 
 			RaisePropertyChanged(() => Notes);
+
+			SubscribeToMessages(messenger);
 		}
 
-		public void AddNote(Note note)
+		public void AddNote(NewNoteMessage message)
 		{
-			_notesService.AddNote(note);
+			_notesService.AddNote(message.NewNote);
 			RaisePropertyChanged(() => Notes);
 		}
 
@@ -62,5 +67,9 @@ namespace MvvmCrossDemo.Core.ViewModels
 			Debug.WriteLine("note title: {0}", vm.Title);
 		}
 
+		void SubscribeToMessages(IMvxMessenger messenger)
+		{
+			_token = messenger.Subscribe<NewNoteMessage>(AddNote);
+		}
 	}
 }

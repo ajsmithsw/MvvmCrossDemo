@@ -21,6 +21,8 @@ namespace MvvmCrossDemo.iOS.Views
 			EdgesForExtendedLayout = UIRectEdge.None;
 
 			var source = new MvxSimpleTableViewSource(TableView, "NotesViewCell", NotesViewCell.Key);
+			source.DeselectAutomatically = true;
+
 			TableView.RowHeight = 60;
 
 			var set = this.CreateBindingSet<NotesView, NotesViewModel>();
@@ -28,8 +30,6 @@ namespace MvvmCrossDemo.iOS.Views
 			set.Bind(source).For(x => x.SelectionChangedCommand).To(vm => vm.OnItemClicked);
 			set.Bind(source).To(vm => vm.Notes);
 			set.Apply();
-
-			source.DeselectAutomatically = true;
 
 			TableView.Source = source;
 			TableView.ReloadData();
