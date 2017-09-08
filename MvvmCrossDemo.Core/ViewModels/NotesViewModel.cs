@@ -1,12 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
 using MvvmCrossDemo.Core.Messages;
-using MvvmCrossDemo.Core.Models;
 using MvvmCrossDemo.Core.Services;
 
 namespace MvvmCrossDemo.Core.ViewModels
@@ -14,7 +11,23 @@ namespace MvvmCrossDemo.Core.ViewModels
 	public class NotesViewModel : MvxViewModel
 	{
 		INotesService _notesService;
-		MvxSubscriptionToken _token;
+		IMvxMessenger _messenger;
+		List<MvxSubscriptionToken> _subscriptionTokens;
+
+		public NotesViewModel(INotesService notesService, IMvxMessenger messenger)
+		{
+			_notesService = notesService;
+			_messenger = messenger;
+
+			_notes = new ObservableCollection<NotesCellViewModel>();
+
+			foreach (var note in _notesService.GetNotes())
+				_notes.Add(new NotesCellViewModel(note));
+
+			RaisePropertyChanged(() => Notes);
+
+			SubscribeToMessages();
+		}
 
 		ObservableCollection<NotesCellViewModel> _notes;
 		public ObservableCollection<NotesCellViewModel> Notes
@@ -23,21 +36,6 @@ namespace MvvmCrossDemo.Core.ViewModels
 			{
 				return _notes;
 			}
-		}
-
-		public NotesViewModel(INotesService notesService, IMvxMessenger messenger)
-		{
-			_notesService = notesService;
-
-			_notes = new ObservableCollection<NotesCellViewModel>();
-			foreach (var note in _notesService.GetNotes())
-			{
-				_notes.Add(new NotesCellViewModel(note));
-			}
-
-			RaisePropertyChanged(() => Notes);
-
-			SubscribeToMessages(messenger);
 		}
 
 		public void AddNote(NewNoteMessage message)
@@ -67,9 +65,10 @@ namespace MvvmCrossDemo.Core.ViewModels
 			Debug.WriteLine("note title: {0}", vm.Title);
 		}
 
-		void SubscribeToMessages(IMvxMessenger messenger)
+		void SubscribeToMessages()
 		{
-			_token = messenger.Subscribe<NewNoteMessage>(AddNote);
+			_subscriptionTokens = new List<MvxSubscriptionToken>();
+			_subscriptionTokens.Add(_messenger.SubscribeOnMainThread<NewNoteMessage>(AddNote));
 		}
 	}
 }

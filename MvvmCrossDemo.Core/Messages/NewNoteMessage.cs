@@ -1,5 +1,4 @@
-﻿using System;
-using MvvmCross.Plugins.Messenger;
+﻿using MvvmCross.Plugins.Messenger;
 using MvvmCrossDemo.Core.Models;
 
 namespace MvvmCrossDemo.Core.Messages

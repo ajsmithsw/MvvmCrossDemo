@@ -113,14 +113,14 @@
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
     <Folder Include="Views\CustomCells\" />
+    <Folder Include="Views\Xibs\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
-    <InterfaceDefinition Include="Views\MainView.xib" />
-    <InterfaceDefinition Include="Views\LoginView.xib" />
-    <InterfaceDefinition Include="Views\NotesView.xib" />
     <InterfaceDefinition Include="Views\CustomCells\NotesViewCell.xib" />
+    <InterfaceDefinition Include="Views\Xibs\LoginView.xib" />
+    <InterfaceDefinition Include="Views\Xibs\NotesView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -130,8 +130,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Views\MainView.designer.cs" />
-    <Compile Include="Views\MainView.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="DebugTrace.cs" />

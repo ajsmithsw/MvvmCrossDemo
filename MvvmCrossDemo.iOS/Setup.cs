@@ -3,14 +3,13 @@ using MvvmCross.iOS.Platform;
 using MvvmCross.iOS.Views.Presenters;
 using MvvmCross.Platform;
 using MvvmCross.Platform.Platform;
-using MvvmCross.Plugins.Messenger;
 using MvvmCrossDemo.Core.Services;
 using MvvmCrossDemo.iOS.Services;
 using UIKit;
 
 namespace MvvmCrossDemo.iOS
 {
-    public class Setup : MvxIosSetup
+	public class Setup : MvxIosSetup
     {
         public Setup(IMvxApplicationDelegate applicationDelegate, UIWindow window)
             : base(applicationDelegate, window)
