@@ -9,7 +9,9 @@ namespace MvvmCrossDemo.Core.Services
 
 		public bool TryLogin(string username, string password)
 		{
-			return username == password;
+			return username == password 
+				&& !string.IsNullOrWhiteSpace(username) 
+				          && !string.IsNullOrWhiteSpace(password);
 		}
 	}
 }

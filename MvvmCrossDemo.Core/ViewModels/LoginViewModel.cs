@@ -70,6 +70,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 			}
 		}
 
+
 		public bool TryAgainTextHidden
 		{
 			get 
