@@ -54,12 +54,12 @@ namespace MvvmCrossDemo.Core.Tests.ViewModels
 			Assert.That(MockDispatcher.Requests[0], Is.TypeOf(typeof(MvxViewModelRequest)));
 		}
 
-
 		LoginViewModel CreateViewModel()
 		{
 			return new LoginViewModel(_loginService.Object);
 		}
 
+		#region setup
 		protected BaseMvxDispatcher MockDispatcher
 		{
 			get;
@@ -72,5 +72,6 @@ namespace MvvmCrossDemo.Core.Tests.ViewModels
 			Ioc.RegisterSingleton<IMvxViewDispatcher>(MockDispatcher);
 			Ioc.RegisterSingleton<IMvxMainThreadDispatcher>(MockDispatcher);
 		}
+		#endregion
 	}
 }
