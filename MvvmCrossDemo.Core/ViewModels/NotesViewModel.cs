@@ -46,7 +46,10 @@ namespace MvvmCrossDemo.Core.ViewModels
 		{
 			get
 			{
-				return new MvxCommand(() => { ShowViewModel<NewNoteViewModel>(); });
+				return new MvxCommand(() => 
+				{ 
+					ShowViewModel<NewNoteViewModel>(); 
+				});
 			}
 		}
 
@@ -60,7 +63,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 
 		void ShowNote(NotesCellViewModel vm)
 		{
-			Debug.WriteLine("note title: {0}", vm.Title);
+			ShowViewModel<NoteDetailsViewModel>(new NoteDetailsParameterValues { Title = vm.Title, Detail = vm.Detail });
 		}
 
 		void PopulateNotes()

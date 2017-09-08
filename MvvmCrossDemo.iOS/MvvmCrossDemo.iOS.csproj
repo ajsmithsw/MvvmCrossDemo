@@ -121,7 +121,8 @@
     <InterfaceDefinition Include="Views\CustomCells\NotesViewCell.xib" />
     <InterfaceDefinition Include="Views\Xibs\LoginView.xib" />
     <InterfaceDefinition Include="Views\Xibs\NotesView.xib" />
-    <InterfaceDefinition Include="Views\NewNoteView.xib" />
+    <InterfaceDefinition Include="Views\Xibs\NewNoteView.xib" />
+    <InterfaceDefinition Include="Views\NoteDetailsView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -151,6 +152,10 @@
     <Compile Include="Views\NewNoteView.cs" />
     <Compile Include="Views\NewNoteView.designer.cs">
       <DependentUpon>NewNoteView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoteDetailsView.cs" />
+    <Compile Include="Views\NoteDetailsView.designer.cs">
+      <DependentUpon>NoteDetailsView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -6,26 +6,26 @@ namespace MvvmCrossDemo.Core.ViewModels
 {
 	public class NotesCellViewModel : MvxViewModel
 	{
-		Note _note;
+		public Note Note;
 
 		public NotesCellViewModel(Note note)
 		{
-			_note = note;
+			Note = note;
 		}
 
 		public string Title
 		{
-			get { return _note.Title; }
+			get { return Note.Title; }
 		}
 
 		public string Detail
 		{
-			get { return _note.Detail; }
+			get { return Note.Detail; }
 		}
 
 		public string Summary
 		{
-			get { return _note.Summary; }
+			get { return Note.Summary; }
 		}
 	}
 }

@@ -38,6 +38,8 @@
     <Compile Include="ViewModels\NotesCellViewModel.cs" />
     <Compile Include="Messages\NewNoteMessage.cs" />
     <Compile Include="ViewModels\NewNoteViewModel.cs" />
+    <Compile Include="ViewModels\NoteDetailsViewModel.cs" />
+    <Compile Include="ParameterValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">
