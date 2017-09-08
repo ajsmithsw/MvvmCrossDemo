@@ -15,14 +15,11 @@ namespace MvvmCrossDemo.Core.ViewModels
 		IMvxMessenger _messenger;
 		List<MvxSubscriptionToken> _subscriptionTokens;
 
-		public NotesViewModel(INotesService notesService, IMvxMessenger messenger)
+		public NotesViewModel(INotesService notesService, 
+		                      IMvxMessenger messenger)
 		{
 			_notesService = notesService;
 			_messenger = messenger;
-
-			_notes = new ObservableCollection<NotesCellViewModel>();
-
-			PopulateNotes();
 
 			RaisePropertyChanged(() => Notes);
 

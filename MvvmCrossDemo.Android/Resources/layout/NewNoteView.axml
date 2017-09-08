@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="#ffffff">
+    <EditText
+        android:id="@+id/title_field"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Title"
+        android:textColorHint="@color/button_material_dark"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        local:MvxBind="Text Title" />
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Save"
+        local:MvxBind="Click Save" />
+    <EditText
+        android:id="@+id/detail_field"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/title_field"
+        android:layout_above="@id/save_button"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:hint="Note details"
+        android:textColorHint="@color/button_material_dark"
+        android:textColor="#000000"
+        local:MvxBind="Text Detail" />
+</RelativeLayout>

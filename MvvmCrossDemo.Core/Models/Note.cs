@@ -9,7 +9,7 @@ namespace MvvmCrossDemo.Core.Models
 		public string Summary { 
 			get 
 			{ 
-				return Detail.Substring(0, Detail.Length > 50 ? 49 : Detail.Length - 1) + "..."; 
+				return Detail.Substring(0, Detail.Length > 50 ? 50 : Detail.Length); 
 			} 
 		}
 	}
