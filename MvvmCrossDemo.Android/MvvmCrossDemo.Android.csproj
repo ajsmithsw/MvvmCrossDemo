@@ -87,6 +87,7 @@
     <Compile Include="Views\NotesView.cs" />
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="Views\NewNoteView.cs" />
+    <Compile Include="Views\NoteDetailsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -109,6 +110,7 @@
     <AndroidResource Include="Resources\layout\NotesView.axml" />
     <AndroidResource Include="Resources\layout\note_cell.axml" />
     <AndroidResource Include="Resources\layout\NewNoteView.axml" />
+    <AndroidResource Include="Resources\layout\NoteDetailsView.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
