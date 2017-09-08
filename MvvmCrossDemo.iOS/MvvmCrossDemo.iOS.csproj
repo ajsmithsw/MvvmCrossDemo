@@ -121,6 +121,7 @@
     <InterfaceDefinition Include="Views\CustomCells\NotesViewCell.xib" />
     <InterfaceDefinition Include="Views\Xibs\LoginView.xib" />
     <InterfaceDefinition Include="Views\Xibs\NotesView.xib" />
+    <InterfaceDefinition Include="Views\NewNoteView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -147,6 +148,10 @@
       <DependentUpon>NotesViewCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
+    <Compile Include="Views\NewNoteView.cs" />
+    <Compile Include="Views\NewNoteView.designer.cs">
+      <DependentUpon>NewNoteView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmCrossDemo.Core\MvvmCrossDemo.Core.csproj">

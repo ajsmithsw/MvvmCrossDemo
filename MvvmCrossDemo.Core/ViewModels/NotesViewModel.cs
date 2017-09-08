@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using MvvmCross.Core.ViewModels;
@@ -21,8 +22,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 
 			_notes = new ObservableCollection<NotesCellViewModel>();
 
-			foreach (var note in _notesService.GetNotes())
-				_notes.Add(new NotesCellViewModel(note));
+			PopulateNotes();
 
 			RaisePropertyChanged(() => Notes);
 
@@ -34,6 +34,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 		{
 			get
 			{
+				PopulateNotes();
 				return _notes;
 			}
 		}
@@ -48,7 +49,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 		{
 			get
 			{
-				return new MvxCommand(() => { ShowViewModel<MainViewModel>(); });
+				return new MvxCommand(() => { ShowViewModel<NewNoteViewModel>(); });
 			}
 		}
 
@@ -65,10 +66,17 @@ namespace MvvmCrossDemo.Core.ViewModels
 			Debug.WriteLine("note title: {0}", vm.Title);
 		}
 
+		void PopulateNotes()
+		{
+			_notes = new ObservableCollection<NotesCellViewModel>();
+			foreach (var note in _notesService.GetNotes())
+				_notes.Add(new NotesCellViewModel(note));
+		}
+
 		void SubscribeToMessages()
 		{
 			_subscriptionTokens = new List<MvxSubscriptionToken>();
-			_subscriptionTokens.Add(_messenger.SubscribeOnMainThread<NewNoteMessage>(AddNote));
+			_subscriptionTokens.Add(_messenger.Subscribe<NewNoteMessage>(AddNote));
 		}
 	}
 }
