@@ -109,6 +109,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
+    <Folder Include="Views\CustomCells\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -116,6 +117,7 @@
     <InterfaceDefinition Include="Views\MainView.xib" />
     <InterfaceDefinition Include="Views\LoginView.xib" />
     <InterfaceDefinition Include="Views\NotesView.xib" />
+    <InterfaceDefinition Include="Views\CustomCells\NotesViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -138,6 +140,10 @@
     <Compile Include="Views\NotesView.cs" />
     <Compile Include="Views\NotesView.designer.cs">
       <DependentUpon>NotesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomCells\NotesViewCell.cs" />
+    <Compile Include="Views\CustomCells\NotesViewCell.designer.cs">
+      <DependentUpon>NotesViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
