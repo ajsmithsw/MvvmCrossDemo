@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
 using MvvmCrossDemo.Core.Models;
@@ -40,12 +41,25 @@ namespace MvvmCrossDemo.Core.ViewModels
 			RaisePropertyChanged(() => Notes);
 		}
 
-		public ICommand OnItemClicked
+		public IMvxCommand CreateNewNote
 		{
 			get
 			{
-				return new MvxCommand(() => { Debug.WriteLine("clicked an item"); });
+				return new MvxCommand(() => { ShowViewModel<MainViewModel>(); });
 			}
+		}
+
+		public IMvxCommand OnItemClicked
+		{
+			get
+			{
+				return new MvxCommand<NotesCellViewModel>(ShowNote);
+			}
+		}
+
+		void ShowNote(NotesCellViewModel vm)
+		{
+			Debug.WriteLine("note title: {0}", vm.Title);
 		}
 
 	}

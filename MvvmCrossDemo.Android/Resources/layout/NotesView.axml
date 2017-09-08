@@ -5,10 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_material_light">
+    <Button
+        android:id="@+id/add_button"
+        android:text="Add note"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click CreateNewNote" />
     <mvvmcross.binding.droid.views.MvxListView
         android:id="@+id/notes_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        local:MvxBind="ItemsSource Notes"
+        local:MvxBind="ItemsSource Notes; ItemClick OnItemClicked"
         local:MvxItemTemplate="@layout/note_cell" />
 </LinearLayout>
