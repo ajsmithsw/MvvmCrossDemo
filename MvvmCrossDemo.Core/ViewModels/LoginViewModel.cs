@@ -9,10 +9,12 @@ namespace MvvmCrossDemo.Core.ViewModels
 	{
 		ILoginService _loginService;
 
+
 		public LoginViewModel(ILoginService loginService)
 		{
 			_loginService = loginService;
 		}
+
 
 		string _username;
 		public string Username
@@ -28,6 +30,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 			}
 		}
 
+
 		string _password;
 		public string Password
 		{
@@ -42,11 +45,19 @@ namespace MvvmCrossDemo.Core.ViewModels
 			}
 		}
 
-		public string TryAgainText => "Try again!";
+
+		public string TryAgainText
+		{
+			get
+			{
+				return "Try again!";
+			}
+		}
+
 
 		bool _tryAgainTextVisible;
 		public bool TryAgainTextVisible
-		{ 
+		{
 			get
 			{
 				return _tryAgainTextVisible;
@@ -57,6 +68,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 				RaisePropertyChanged(() => TryAgainTextVisible);
 			}
 		}
+
 
 		public ICommand LoginCommand => new MvxCommand(Login);
 		void Login()
@@ -72,6 +84,7 @@ namespace MvvmCrossDemo.Core.ViewModels
 				PromptForRetry();
 			}
 		}
+
 
 		void PromptForRetry()
 		{

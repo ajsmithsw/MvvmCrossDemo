@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{8B4F6A80-3543-4F96-825B-AC4589D04C14}</ProjectGuid>
+    <ProjectGuid>{029B64D2-4AC4-4EB5-80E8-46C009B3E383}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>MvvmCrossDemo.iOS</RootNamespace>
@@ -22,7 +22,7 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
     <MtouchFastDev>true</MtouchFastDev>
-    <IOSDebuggerPort>26000</IOSDebuggerPort>
+    <IOSDebuggerPort>43799</IOSDebuggerPort>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386, x86_64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -70,7 +70,7 @@
     <MtouchFastDev>true</MtouchFastDev>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <IOSDebuggerPort>15205</IOSDebuggerPort>
+    <IOSDebuggerPort>62616</IOSDebuggerPort>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
@@ -113,12 +113,13 @@
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Views\MainView.xib" />
+    <InterfaceDefinition Include="Views\LoginView.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
-    <None Include="AppDelegate.cs.txt" />
+    <None Include="ToDo-MvvmCross\_ iOS UI.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -128,6 +129,10 @@
     <Compile Include="Setup.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="DebugTrace.cs" />
+    <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Views\LoginView.designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvvmCrossDemo.Core\MvvmCrossDemo.Core.csproj">
